@@ -46,13 +46,10 @@ impl Decay {
         // generate sorted random capped by 0 and 1
         let mut r: Vec<f64> = vec![0.0; self.n];
         if self.n > 2 {
-            r.iter_mut()
-                .skip(1)
-                .take(self.n - 1)
-                .for_each(|rv| *rv = rng.f64());
-            r.sort_by(|a, b| a.total_cmp(b));
+            (0..self.n - 2).for_each(|i| r[i + 1] = rng.f64());
         }
         r[self.n - 1] = 1.0;
+        r.sort_by(|a, b| a.total_cmp(b));
 
         // generate intermediate masses
         let mut int_masses = vec![0.0; self.n];

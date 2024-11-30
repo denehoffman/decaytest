@@ -31,7 +31,7 @@ class Decay:
         # generate sorted random capped by 0 and 1
         r = [0.0, 1.0]
         if self.n > 2:
-            r = rng.random(size=(self.n - 2))
+            r = [rng.uniform(0.0, 1.0) for _ in range(self.n - 2)]
             r = sorted(r)
             r = [0.0, *r, 1.0]
 
@@ -59,7 +59,7 @@ class Decay:
             # rotate by random spherical angles
             cos_y = rng.uniform(-1.0, 1.0)
             sin_y = np.sqrt(1.0 - cos_y**2)
-            phi = 2.0 * np.pi * rng.random()
+            phi = 2.0 * np.pi * rng.uniform(0.0, 1.0)
             cos_z = np.cos(phi)
             sin_z = np.sin(phi)
             for j in range(0, i + 1):

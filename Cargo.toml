@@ -1,0 +1,12 @@
+[package]
+name = "decay"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+laddu = "0.1.11"
+fastrand = "2.2.0"
+fastrand-contrib = "0.1.0"
+factorial = "0.4.0"
+itertools = "0.13.0"
+serde-pickle = "1.2.0"
